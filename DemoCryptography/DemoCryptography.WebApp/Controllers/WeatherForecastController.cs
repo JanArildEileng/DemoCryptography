@@ -9,6 +9,7 @@ namespace DemoCryptography.WebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiExplorerSettings(GroupName = "Basis")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

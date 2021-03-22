@@ -30,7 +30,10 @@ namespace DemoCryptography.WebApp
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoCryptography.WebApp", Version = "v1" });
+                c.SwaggerDoc("Basis", new OpenApiInfo { Title = "Basis", Version = "Basis" });
+                c.SwaggerDoc("RandomNumber", new OpenApiInfo { Title = "RandomNumber", Version = "RandomNumber" });
+
+              
             });
         }
 
@@ -41,7 +44,14 @@ namespace DemoCryptography.WebApp
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoCryptography.WebApp v1"));
+              
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/Basis/swagger.json", "Basis");
+                    c.SwaggerEndpoint("/swagger/RandomNumber/swagger.json", "RandomNumber");
+                   
+                    //c.RoutePrefix = string.Empty;
+                });
             }
 
             app.UseHttpsRedirection();
